@@ -5,7 +5,7 @@
 ## 推荐仓库资料
 
 - 显示名称：中国象棋。
-- 已获所有者授权使用公开仓库：`Gnt191612/Chinese-Chess`；本地尚无远端，不代表已上传。
+- 已创建公开仓库并推送 `main`：[Gnt191612/Chinese-Chess](https://github.com/Gnt191612/Chinese-Chess)。
 - 简介：Windows本地中国象棋人机对弈，限时搜索、轻量棋理评估、常见开局与传统木质界面。
 - 关键词建议：`xiangqi`、`chinese-chess`、`cpp`、`windows`、`game-ai`。
 - 许可证：自有源码MIT；第三方参考资料和未来模型另行遵守各自许可。
@@ -15,7 +15,7 @@
 
 按[GitHub官方规则](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)，Topics使用小写字母、数字和连字符，每个不超过50字符，最多20个。中文关键词写进README，不直接用作Topics；不保证任何搜索排名。
 
-准备的20个Topics（尚未应用到线上仓库）：
+已在公开仓库设置的20个Topics：
 
 ```text
 xiangqi chinese-chess cpp windows easyx game-ai alpha-beta iterative-deepening opening-book learn-xiangqi student-project course-project artificial-intelligence machine-learning knowledge-distillation pikafish community-data chess-style hu-ronghua xu-yinchuan
@@ -27,7 +27,7 @@ xiangqi chinese-chess cpp windows easyx game-ai alpha-beta iterative-deepening o
 
 1. 所有者已确认有权公开现有源码与素材；参考材料不随包分发。
 2. 已确认GitHub账号、仓库名称和公开可见性为 `Gnt191612/Chinese-Chess`。
-3. 已授权首次本地提交、创建远端并推送；本文件不代表这些操作已完成。
+3. 已授权并完成首次本地提交、创建远端并推送。
 4. 安全问题的私密联系渠道；不要在公开Issue中接收凭据。
 
 ## 本地验证与上传内容
@@ -36,7 +36,11 @@ xiangqi chinese-chess cpp windows easyx game-ai alpha-beta iterative-deepening o
 
 按README安装VS2022的C++桌面开发组件与EasyX，构建Release x64。运行 `tests/build_tests.bat` 后至少执行逻辑、规则审计、评估、快捷键、展示与缓存测试；展示测试会创建短暂图形窗口，应在有桌面的环境运行。训练辅助工具可独立用Python测试，不要求教师已下载。
 
-当前未配置Windows图形CI：EasyX依赖的获取与图形测试桌面需求尚未自动化，不提供未经验证的绿色CI标记。Issue和PR模板已准备，但未操作线上仓库设置。
+当前未配置Windows图形CI：EasyX依赖的获取与图形测试桌面需求尚未自动化，不提供未经验证的绿色CI标记。问题、经验贡献及PR模板已随源码上传。
+
+## 实际发布记录
+
+2026年10月4日创建公开仓库，首次源码提交为 `3535912`，已推送至 `main` 并设置20个Topics。尚未创建正式Release或发布EXE、模型与个人经验库，也未上传学校服务器。
 
 ## 发布说明草稿
 

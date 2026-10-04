@@ -128,7 +128,7 @@ tests\TimingTest.exe
 
 第三方来源和许可状态记录在 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。本项目自行编写的程序源码和文档采用 [MIT许可证](LICENSE)。该许可证不覆盖CCPD原始数据、第三方教师引擎、Pikafish NNUE权重或其他外部材料。
 
-未来训练得到的轻量模型在完成独立许可审查前，不声明可用于商业用途，也不会默认作为MIT源码的一部分发布。当前可以单独准备未附训练模型的源码开源候选；最终模型与原始数据不随该候选分发，本次未执行GitHub上传或发布。
+未来训练得到的轻量模型在完成独立许可审查前，不声明可用于商业用途，也不会默认作为MIT源码的一部分发布。源码已公开至 [Gnt191612/Chinese-Chess](https://github.com/Gnt191612/Chinese-Chess)；可执行文件、最终模型、原始数据和个人经验库尚未公开分发。
 
 ## 许可证
 
