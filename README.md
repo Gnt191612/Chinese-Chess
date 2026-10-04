@@ -4,7 +4,7 @@
 
 详细的功能、设计目标与验证状态见 [FEATURES.md](FEATURES.md)。
 
-首次开源的仓库资料、发布范围和确认事项见 [GitHub发布准备](docs/GITHUB_PUBLICATION.md)。本候选仅提供源码，不附已训练模型。
+首次开源的仓库资料、发布范围和确认事项见 [GitHub发布准备](docs/GITHUB_PUBLICATION.md)。玩家成品只提供 `中国象棋-Setup.exe` 安装版，不提供便携ZIP；安装包的验证与发布状态见 [安装版说明](docs/PORTABLE_PACKAGE.md)。不附已训练模型。
 
 ## 项目特色与发展计划
 
