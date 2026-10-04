@@ -1,0 +1,81 @@
+# Visual Studio / C++ build products
+.vs/
+build/
+x64/
+Win32/
+[Dd]ebug/
+[Rr]elease/
+*.obj
+*.exe
+*.dll
+*.lib
+*.exp
+*.ilk
+*.pdb
+*.idb
+*.ipch
+*.tlog
+*.log
+*.recipe
+*.lastbuildstate
+*.vcxproj.user
+
+# Runtime state
+community-experience/incoming/
+community-experience/quarantine/
+community-experience/generated/
+experience.dat
+saves/
+*.xqsession
+*.xqsession.tmp
+*.xqrecover
+tests/experience_test.dat
+tests/ui-preview.png
+tests/victory-preview.png
+tests/board-marks-preview.png
+tests/move-preview.png
+tests/capture-preview.png
+tests/check-preview.png
+tests/capture-check-preview.png
+
+# Training inputs, generated labels, models and logs
+training/data/raw/*
+training/data/processed/*
+training/data/labels/*
+training/models/*
+training/logs/*
+!training/data/raw/.gitkeep
+!training/data/processed/.gitkeep
+!training/data/labels/.gitkeep
+!training/models/.gitkeep
+!training/logs/.gitkeep
+
+# Teacher engines and weights must be supplied separately
+training/engines/
+*.nnue
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Credentials and machine-local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.ppk
+id_rsa*
+id_ed25519*
+training/config/local.json
+
+# Editors / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini
+

@@ -1,0 +1,12 @@
+{
+  "teacher_name": "pikafish-local",
+  "engine_path": "/absolute/path/to/pikafish",
+  "engine_args": [],
+  "threads": 1,
+  "hash_mb": 256,
+  "multipv": 3,
+  "movetime_ms": 300,
+  "position_timeout_ms": 5000,
+  "extra_options": {}
+}
+

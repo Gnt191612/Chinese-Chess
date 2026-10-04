@@ -1,0 +1,26 @@
+{
+  "dataset": {
+    "name": "REPLACE_ME",
+    "source_url": "REPLACE_ME",
+    "version": "REPLACE_ME",
+    "license": "REPLACE_ME",
+    "downloaded_at": "YYYY-MM-DD",
+    "sha256": "REPLACE_ME"
+  },
+  "teacher": {
+    "name": "REPLACE_ME",
+    "source_url": "REPLACE_ME",
+    "version_or_commit": "REPLACE_ME",
+    "binary_sha256": "REPLACE_ME",
+    "weights_name": "REPLACE_ME_OR_NONE",
+    "weights_sha256": "REPLACE_ME_OR_NONE",
+    "license_checked": false
+  },
+  "run": {
+    "source_commit": "REPLACE_ME",
+    "slurm_job_ids": [],
+    "started_at": "REPLACE_ME",
+    "finished_at": "REPLACE_ME",
+    "notes": ""
+  }
+}
