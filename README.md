@@ -6,6 +6,8 @@
 
 首次开源的仓库资料、发布范围和确认事项见 [GitHub发布准备](docs/GITHUB_PUBLICATION.md)。玩家成品只提供 `中国象棋-Setup.exe` 安装版，不提供便携ZIP；安装包的验证与发布状态见 [安装版说明](docs/PORTABLE_PACKAGE.md)。不附已训练模型。
 
+玩家下载入口：[Windows安装版 Releases](https://github.com/Gnt191612/Chinese-Chess/releases/tag/v0.1.0-rc.1)。下载附件 `Chinese-Chess-Setup.exe`，按中文向导安装即可；不需要开发环境。GitHub上传会移除中文附件名，线上使用英文名称，与本地“中国象棋-Setup.exe”内容相同。首版为候选版，未签名且未完成独立杀毒扫描，详见版本说明。
+
 ## 项目特色与发展计划
 
 经验投稿采用[贡献者／批次追溯目录](community-experience/README.md)：污染或许可违规批次可撤销、通知投稿者并发布库更新公告；修正库从其他合格批次重建。当前提供制度与清单模板，自动合并、回滚工具尚未实现。
@@ -128,7 +130,7 @@ tests\TimingTest.exe
 
 第三方来源和许可状态记录在 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。本项目自行编写的程序源码和文档采用 [MIT许可证](LICENSE)。该许可证不覆盖CCPD原始数据、第三方教师引擎、Pikafish NNUE权重或其他外部材料。
 
-未来训练得到的轻量模型在完成独立许可审查前，不声明可用于商业用途，也不会默认作为MIT源码的一部分发布。源码已公开至 [Gnt191612/Chinese-Chess](https://github.com/Gnt191612/Chinese-Chess)；可执行文件、最终模型、原始数据和个人经验库尚未公开分发。
+未来训练得到的轻量模型在完成独立许可审查前，不声明可用于商业用途，也不会默认作为MIT源码的一部分发布。源码已公开至 [Gnt191612/Chinese-Chess](https://github.com/Gnt191612/Chinese-Chess)，安装版通过Releases分发；最终模型、原始数据和个人经验库尚未公开分发。
 
 ## 许可证
 

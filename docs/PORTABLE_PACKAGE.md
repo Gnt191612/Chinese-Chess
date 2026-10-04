@@ -20,8 +20,10 @@
 
 ## 发布边界
 
+首个安装候选版已公开至 [v0.1.0-rc.1](https://github.com/Gnt191612/Chinese-Chess/releases/tag/v0.1.0-rc.1)，附件名为 `Chinese-Chess-Setup.exe`（GitHub自动清理中文文件名；内容与本地安装包相同）。SHA-256：`D9EF48AC37877408A336EECCD18650D25991DF8B4C81BD641F02D98F2EF01810`。对应源码提交 `45bd18d`，后续文档修正不改变本次二进制。
+
 2026年10月4日本机验证：Release x64构建、Inno Setup 7.1.0编译、正常启动、覆盖安装及卸载通过；用测试文件核对升级与卸载保留经验／棋局，不使用个人数据。最终安装包的Defender自定义扫描返回错误 `0x80004005`（退出码2），不视为扫描通过；尚未公开Release附件。当前电脑操作通道不支持原生窗口操作，联想／火绒需补充人工扫描结果。
 
-安装版目前为待验证候选，公开状态以GitHub Releases为准。EasyX官方同时说明免费使用与静态编译程序的发布方式，详见THIRD_PARTY_NOTICES.md；不单独再分发EasyX开发库。本机Defender未启用，另有联想／火绒防护，不将实时防护当作完成成品扫描；最终安装包须有明确扫描结果后再公开Release。不要为了运行软件关闭杀毒或SmartScreen。
+安装版为早期候选，公开状态以[GitHub Releases](https://github.com/Gnt191612/Chinese-Chess/releases)为准。维护者已明确决定不等待独立杀毒扫描直接公开此候选；此前Defender失败不视为通过，也不作绝对安全保证。EasyX官方同时说明免费使用与静态编译程序的发布方式，详见THIRD_PARTY_NOTICES.md；不单独再分发EasyX开发库。本机Defender未启用，另有联想／火绒防护，不将实时防护当作完成成品扫描。不要为了运行软件关闭杀毒或SmartScreen。
 
 本次未使用全新Windows虚拟机或Windows Sandbox，因此同机干净目录验证不能等同于所有目标设备的兼容性测试。程序未签名，下载后可能显示未知发布者；SHA-256校验只能验证文件一致性，不能代替签名或病毒扫描。
