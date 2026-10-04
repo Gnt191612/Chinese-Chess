@@ -6,7 +6,7 @@
 
 首次开源的仓库资料、发布范围和确认事项见 [GitHub发布准备](docs/GITHUB_PUBLICATION.md)。玩家成品只提供 `中国象棋-Setup.exe` 安装版，不提供便携ZIP；安装包的验证与发布状态见 [安装版说明](docs/PORTABLE_PACKAGE.md)。不附已训练模型。
 
-玩家下载入口：[Windows安装版 Releases](https://github.com/Gnt191612/Chinese-Chess/releases/tag/v0.1.0-rc.1)。下载附件 `Chinese-Chess-Setup.exe`，按中文向导安装即可；不需要开发环境。GitHub上传会移除中文附件名，线上使用英文名称，与本地“中国象棋-Setup.exe”内容相同。首版为候选版，未签名且未完成独立杀毒扫描，详见版本说明。
+玩家下载入口：[Windows安装版 Releases](https://github.com/Gnt191612/Chinese-Chess/releases/tag/v0.1.0-rc.1)。下载附件 `Chinese-Chess-Setup.exe`，按中文向导安装即可；不需要开发环境。GitHub上传会移除中文附件名，线上使用英文名称，与本地“中国象棋-Setup.exe”内容相同。首版为候选版，功能与测试范围详见版本说明。
 
 ## 项目特色与发展计划
 
