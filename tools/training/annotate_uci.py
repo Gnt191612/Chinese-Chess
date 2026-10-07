@@ -23,6 +23,7 @@ class UciEngine:
             encoding="utf-8",
             errors="replace",
             bufsize=1,
+            cwd=config.get("engine_workdir"),
         )
         self.lines: "queue.Queue[Optional[str]]" = queue.Queue()
         self.stderr_tail: List[str] = []

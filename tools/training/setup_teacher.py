@@ -54,7 +54,7 @@ def prepare(repo, check_only=False):
         config = json.loads(config_path.read_text(encoding='utf-8'))
         if Path(config['engine_path']).resolve() != (folder / 'Pikafish-Windows-x86-64-universal.exe').resolve():
             raise ValueError('配置不是本安装器固定的教师，请单独核验自定义配置')
-        if Path(config['extra_options']['EvalFile']).resolve() != (folder / 'pikafish.nnue').resolve():
+        if Path(config.get('engine_workdir', '')).resolve() != folder.resolve() or config['extra_options']['EvalFile'] != 'pikafish.nnue':
             raise ValueError('权重路径不匹配')
         return folder
     print('教师引擎为GPLv3；官方NNUE权重仅限合法用途，未经许可不得商业使用。')
@@ -75,9 +75,9 @@ def prepare(repo, check_only=False):
     verify(folder)
     print((folder / 'NNUE-License.md').read_text(encoding='utf-8'))
     config = {'teacher_name': TAG, 'engine_path': str(folder / 'Pikafish-Windows-x86-64-universal.exe'),
-              'engine_args': [], 'threads': 1, 'hash_mb': 256, 'multipv': 3,
+              'engine_args': [], 'engine_workdir': str(folder), 'threads': 1, 'hash_mb': 256, 'multipv': 3,
               'movetime_ms': 300, 'position_timeout_ms': 5000,
-              'extra_options': {'EvalFile': str(folder / 'pikafish.nnue')}}
+              'extra_options': {'EvalFile': 'pikafish.nnue'}}
     config_path.write_text(json.dumps(config, ensure_ascii=False, indent=2), encoding='utf-8')
     provenance = {'teacher_tag': TAG, 'teacher_commit': COMMIT, 'archive_url': ARCHIVE_URL,
                   'archive_sha256': ARCHIVE_SHA, 'files_sha256': FILES,
