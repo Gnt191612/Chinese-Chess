@@ -16,6 +16,7 @@ public:
     Move GetBestMove(const ChessBoard& board, const std::atomic<bool>* cancellation = nullptr);
     void SetExperienceBook(const ExperienceBook* book) { m_experienceBook = book; }
     void RequestStop();
+    int EvaluateForTraining(const ChessBoard& board) const { return Evaluate(board, RED_P); }
     void SetOpeningFamily(int family) { m_openingFamily = family; }
     int GetOpeningFamily() const { return m_openingFamily; }
     static void RememberOpeningFamily(int family);

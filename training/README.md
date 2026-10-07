@@ -44,9 +44,24 @@ python tools/training/validate_labels.py --input training/data/labels/part-00000
 
 ## 尚未包含
 
-- CCPD原始格式到统一JSONL的转换器：内部字段已经冻结，仍需在首次取得数据后针对实际棋谱编码实现并验证。
+- CCPD包含变化分支、无法唯一解析的中文记谱及其他编码的覆盖：当前转换器支持UTF-8/Big5主线PGN，逐着调用本项目棋规校验；遇到歧义拒绝整盘。
 - ElephantArt、ElephantEye等非统一协议适配器。
-- 参数拟合程序：需要先确定最终评估特征和模型文件格式。
+- Human Prior训练和系统棋力对照：当前只实现XQEV1十个特征对原有评估的有界线性修正，尚未进行教师正式训练或宣称棋力提高。
 - 教师引擎、权重、数据集和最终模型。
 
 这些项目必须在来源、版本和许可证确定后实现，避免围绕错误格式提前编写不可验证的转换代码。
+
+## 已连接的轻量训练流程
+
+```powershell
+tools/training/build_probe.bat
+python tools/training/convert_pgn.py --input training/data/raw/样本目录 --probe build/training-probe/PositionProbe.exe --output training/data/processed/positions.jsonl
+python tools/training/annotate_uci.py --config training/config/local.json --input training/data/processed/positions.jsonl --output training/data/labels/labels.jsonl
+python tools/training/fit_light.py --input training/data/labels/labels.jsonl --output training/models/试验001
+```
+
+转换按原文件SHA-256整盘划分train/validation/test并去重；输出基线红方评分和C++共享特征，标注器保留这些元数据。拟合仅使用主候选的精确cp分数，按轮到谁走转换为红方视角，跳过将死与界限分数；使用岭回归拟合残差，每个修正权重限制在±50。报告记录各集合RMSE，不将评分误差减少等同实战棋力提升。CP分数尺度需按固定教师版本验证，不支持把多教师原始评分直接混合。
+
+将生成的 `evaluation.xqweights` 放在新版程序旁并重启，程序启动后首次评估加载；文件缺失或格式无效时使用原评估。十个特征依次为红黑士、象、马、车、炮、兵数量差，以及中路兵、三七路兵、兵推进格数、过河兵差。它只是传统评估的小幅修正，不是NNUE或棋风插件。激活修正后的搜索深度与棋力须另行对照测试。
+
+已用CCPD一份Big5中局样本回放31个合法局面，尚未证明全数据集兼容；该样本不随源码分发。单元测试使用构造标签验证拟合与泄漏拒绝，不代表已完成真实教师训练。来源仍须按TRAINING_SOURCES固定提交、校验值与署名，正式模型发布须单独审查许可。

@@ -25,6 +25,8 @@ community-experience/incoming/
 community-experience/quarantine/
 community-experience/generated/
 experience.dat
+community-experience.dat
+evaluation.xqweights
 saves/
 *.xqsession
 *.xqsession.tmp

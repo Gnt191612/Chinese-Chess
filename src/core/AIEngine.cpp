@@ -1,6 +1,7 @@
 ﻿#include "AIEngine.h"
 #include "ExperienceBook.h"
 #include "OpeningBook.h"
+#include "LightFeatures.h"
 #include <algorithm>
 #include <climits>
 #include <cstring>
@@ -463,7 +464,7 @@ int AIEngine::Evaluate(const ChessBoard& board, PieceColor perspective) const {
     PieceColor opponent = perspective == RED_P ? BLACK_P : RED_P;
     if (board.IsCheck(opponent)) score += 35;
     if (board.IsCheck(perspective)) score -= 35;
-    return score;
+    return score + LightFeatures::Correction(board, perspective);
 }
 
 int AIEngine::GenerateOrderedMoves(const ChessBoard& board, ChessMove moves[], int ply,

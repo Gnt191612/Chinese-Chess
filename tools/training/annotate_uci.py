@@ -197,6 +197,9 @@ def main() -> int:
                         "movetime_ms": config["movetime_ms"],
                     },
                 }
+                for metadata_key in ("game_id", "split", "features", "base_score_red", "feature_schema", "source_sha256"):
+                    if metadata_key in record:
+                        output[metadata_key] = record[metadata_key]
                 try:
                     output.update(
                         engine.analyse(fen, config["movetime_ms"], config["position_timeout_ms"])

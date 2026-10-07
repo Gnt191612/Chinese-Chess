@@ -8,4 +8,4 @@
 
 `incoming/`、`quarantine/`、`generated/`：仅维护者本地使用，Git忽略，不上传原始投稿、污染文件或聚合产物。
 
-贡献入口为“经验库贡献”Issue模板。审核、授权与撤销规则见 `docs/EXPERIENCE_CONTRIBUTIONS.md`。目录模板不自动执行审核或合并。
+贡献入口为“经验库贡献”Issue模板。审核、授权与撤销规则见 `docs/EXPERIENCE_CONTRIBUTIONS.md`。登记、人工审核状态、撤销隔离与有效批次重建命令见 [管理工具](../docs/COMMUNITY_LIBRARY_TOOLS.md)；这些工具不代替真实性和许可人工审核。

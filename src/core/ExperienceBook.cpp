@@ -1,4 +1,4 @@
-#include "ExperienceBook.h"
+﻿#include "ExperienceBook.h"
 #include <algorithm>
 #include <cstdio>
 #include <fstream>
@@ -27,6 +27,13 @@ ExperienceBook::ExperienceBook(const std::string& filePath)
     : m_filePath(filePath.empty() ? DefaultPath() : filePath) {
     m_entries.reserve(MAX_MEMORY_ENTRIES);
     Load();
+    // 公共库只读加载；个人对局仍只写入个人文件，不把公共计数再次投稿。
+    if (filePath.empty()) {
+        const std::string localPath = DefaultPath();
+        const std::string communityPath = localPath.substr(0, localPath.find_last_of("\\/") + 1)
+            + "community-experience.dat";
+        m_communityBook.reset(new ExperienceBook(communityPath));
+    }
 }
 
 std::string ExperienceBook::DefaultPath() const {
@@ -60,9 +67,12 @@ const ExperienceBook::Entry* ExperienceBook::Find(uint64_t hash, const ChessMove
 int ExperienceBook::GetMoveBonus(uint64_t positionHash, const ChessMove& move) const {
     std::lock_guard<std::mutex> lock(m_mutex);
     const Entry* entry = Find(positionHash, move);
-    if (!entry || entry->wins + entry->losses < 2) return 0;
-    int balance = static_cast<int>(entry->wins) - static_cast<int>(entry->losses);
-    return (std::max)(-50000, (std::min)(50000, balance * 2000));
+    int64_t balance = entry && static_cast<uint64_t>(entry->wins) + entry->losses >= 2
+        ? static_cast<int64_t>(entry->wins) - entry->losses : 0;
+    const int localBonus = static_cast<int>((std::max)(int64_t(-50000),
+        (std::min)(int64_t(50000), balance * 2000)));
+    const int communityBonus = m_communityBook ? m_communityBook->GetMoveBonus(positionHash, move) : 0;
+    return (std::max)(-50000, (std::min)(50000, localBonus + communityBonus));
 }
 
 void ExperienceBook::RecordGame(const std::vector<ExperienceSample>& samples, bool aiWon) {
@@ -88,7 +98,10 @@ void ExperienceBook::RecordGame(const std::vector<ExperienceSample>& samples, bo
 }
 
 void ExperienceBook::Load() {
-    std::ifstream file(m_filePath, std::ios::binary);
+    std::ifstream file(m_filePath, std::ios::binary | std::ios::ate);
+    if (!file || file.tellg() < static_cast<std::streamoff>(sizeof(FileHeader))
+        || static_cast<uint64_t>(file.tellg()) > MAX_FILE_BYTES) return;
+    file.seekg(0);
     FileHeader header = {};
     if (!file.read(reinterpret_cast<char*>(&header), sizeof(header))
         || header.magic != FILE_MAGIC || header.version != FILE_VERSION) return;
@@ -96,6 +109,9 @@ void ExperienceBook::Load() {
     DiskEntry disk = {};
     while (file.read(reinterpret_cast<char*>(&disk), sizeof(disk))) {
         ChessMove move = { disk.fromX, disk.fromY, disk.toX, disk.toY };
+        if (move.fromX < 0 || move.fromX >= 9 || move.toX < 0 || move.toX >= 9
+            || move.fromY < 0 || move.fromY >= 10 || move.toY < 0 || move.toY >= 10
+            || (move.fromX == move.toX && move.fromY == move.toY)) continue;
         Entry* entry = Find(disk.hash, move);
         if (!entry) {
             if (m_entries.size() >= MAX_MEMORY_ENTRIES) continue;

@@ -2,6 +2,7 @@
 #include "ChessBoard.h"
 #include <cstdint>
 #include <mutex>
+#include <memory>
 #include <string>
 #include <unordered_map>
 #include <vector>
@@ -40,4 +41,5 @@ private:
     std::string m_filePath;
     std::unordered_multimap<uint64_t, Entry> m_entries;
     mutable std::mutex m_mutex;
+    std::unique_ptr<ExperienceBook> m_communityBook;
 };
