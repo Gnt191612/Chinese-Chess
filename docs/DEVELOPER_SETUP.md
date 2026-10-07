@@ -1,6 +1,6 @@
 # 开发者安装入口
 
-开发者安装版建立独立源码工作区和开始菜单入口，不覆盖玩家安装目录，也不覆盖工作区已经修改的源码。它不是完整离线工具链，不捆绑VS、EasyX、Python、教师或网络权重。
+开发者安装版建立独立源码工作区和开始菜单入口，不覆盖玩家安装目录，也不覆盖工作区已经修改的源码。dev.2增加独立目录的皮卡鱼教师、匹配权重、对应源码许可和CCPD档案，见[训练快速开始](TRAINING_QUICKSTART.md)。它不是完整离线工具链，VS、EasyX、Python仍由官方入口安装。
 
 运行 `tools/SetupDeveloper.ps1` 会检测环境；缺少依赖时逐项询问并调用官方安装入口。VS安装可能需数GB、管理员确认或重启，EasyX使用官方选择编译器的向导，Python安装后可能需重新打开窗口。开发者需亲自确认第三方许可，不宣传完全无人值守。
 
@@ -10,6 +10,6 @@
 
 卸载只移除安装入口，保留源码工作区，避免误删开发者的修改。已有新项目请选新目录，不要把源码安装到其他工程里。
 
-构建开发者安装包：先用ExportSource导出干净源码，再用Inno Setup编译 `tools/installer/ChineseChessDeveloper.iss`，以 `/DSourceRoot=导出目录` 指定输入。不允许直接指定包含个人数据和编译产物的整个工作目录。
+构建开发者安装包：先用ExportSource导出干净源码，再用Inno Setup编译 `tools/installer/ChineseChessDeveloper.iss`，以 `/DSourceRoot=导出目录` 和 `/DTeacherRoot=已校验第三方目录` 指定输入。TeacherRoot须含setup_teacher.py校验的文件、CCPD-source.zip、Copying.txt、NNUE-License.md、AUTHORS、README.md及对应源码ZIP。不允许指定包含个人数据的整个工作目录。
 
 当前已验证本机已有开发环境的检测与构建路径；尚未在全新Windows环境实测依赖安装分支，开发者包须按此范围作为预览版本提供，不宣称任意电脑一键全部配置完成。

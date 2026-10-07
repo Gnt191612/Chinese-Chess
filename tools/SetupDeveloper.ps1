@@ -59,5 +59,7 @@ try {
     if ($LASTEXITCODE -ne 0) { throw '训练工具测试失败。' }
     & python.exe tools/training/test_tools.py
     if ($LASTEXITCODE -ne 0) { throw 'UCI工具测试失败。' }
+    & python.exe tests/test_training_setup.py
+    if ($LASTEXITCODE -ne 0) { throw '训练配置工具测试失败。' }
     Write-Host "本机开发环境验证完成，源码目录：$developerRoot"
 } finally { Pop-Location }

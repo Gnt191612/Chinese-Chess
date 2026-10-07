@@ -4,6 +4,8 @@
 
 第一版已经选定的数据与教师组合见 [训练来源与教师选型](../docs/TRAINING_SOURCES.md)。
 
+开发者安装版dev.2附固定教师与数据档案；配置与批次运行命令见[训练快速开始](../docs/TRAINING_QUICKSTART.md)。安装不会自动训练。
+
 ## 输入格式
 
 清洗后的局面使用UTF-8 JSONL，每行一个对象：
@@ -47,7 +49,7 @@ python tools/training/validate_labels.py --input training/data/labels/part-00000
 - CCPD包含变化分支、无法唯一解析的中文记谱及其他编码的覆盖：当前转换器支持UTF-8/Big5主线PGN，逐着调用本项目棋规校验；遇到歧义拒绝整盘。
 - ElephantArt、ElephantEye等非统一协议适配器。
 - Human Prior训练和系统棋力对照：当前只实现XQEV1十个特征对原有评估的有界线性修正，尚未进行教师正式训练或宣称棋力提高。
-- 教师引擎、权重、数据集和最终模型。
+- MIT源码树不附教师、权重或原始数据；dev.2开发Release隔离附固定第三方档案。最终训练模型仍未发布。
 
 这些项目必须在来源、版本和许可证确定后实现，避免围绕错误格式提前编写不可验证的转换代码。
 

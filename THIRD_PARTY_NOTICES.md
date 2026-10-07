@@ -7,8 +7,8 @@
 | 名称 | 计划用途 | 是否随仓库分发 | 许可状态 |
 |---|---|---:|---|
 | EasyX | Windows图形界面构建依赖 | 开发库不分发；程序静态链接 | 官方声明免费使用，并说明静态编译程序的发布方式；不转为MIT |
-| CCPD | Human Prior与真实局面来源 | 否 | 已选CC BY 4.0；下载时固定提交并履行署名 |
-| Pikafish 2026-09-06 | 主要Value离线教师 | 否 | 引擎GPLv3；官方NNUE权重有独立的非商业限制 |
+| CCPD | Human Prior与真实局面来源 | 开发Release附固定档案；不入MIT源码树 | CC BY 4.0，保留作者、原LICENSE和README；见训练快速开始 |
+| Pikafish 2026-09-06 | 主要Value离线教师 | 开发Release独立目录；玩家包不附 | 引擎GPLv3，附对应完整源码及许可；NNUE有独立非商业限制 |
 | ElephantEye 3.15 | 困难局面传统引擎复核 | 否 | LGPL-2.1；获取时固定具体提交 |
 | ElephantArt | 后续可选异构教师 | 否 | GPLv3第7节；第一版不采用 |
 
